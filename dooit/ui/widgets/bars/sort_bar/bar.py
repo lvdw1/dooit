@@ -43,9 +43,9 @@ class SortBar(BarBase):
         if key == "enter":
             return self.dismiss(cancel=False)
 
-        if key == "left":
+        if key == "h":
             self.selected -= 1
-        elif key == "right":
+        if key == "l":
             self.selected += 1
 
     def render(self) -> RenderableType:
