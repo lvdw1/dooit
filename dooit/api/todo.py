@@ -6,7 +6,6 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship, validates
 from .model import DooitModel
 from .manager import manager
 
-
 if TYPE_CHECKING:  # pragma: no cover
     from dooit.api.workspace import Workspace
 
@@ -158,8 +157,7 @@ class Todo(DooitModel):
     def is_due_today(self) -> bool:
         if not self.due:
             return False
-
-        return self.due and self.due.day == datetime.today().day
+        return self.due.day == datetime.today().day
 
     @property
     def is_completed(self) -> bool:

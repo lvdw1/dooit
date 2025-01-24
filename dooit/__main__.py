@@ -1,12 +1,13 @@
 from typing import Optional
 import click
+import logging
 from pathlib import Path
 from platformdirs import user_data_dir, user_config_dir
 
 OLD_CONFIG = Path(user_data_dir("dooit")) / "todo.yaml"
 VERSION = "3.1.0"
 
-
+logging.basicConfig(filename="/Users/louis/Applications/dooit/debug.log", level = logging.DEBUG)
 def run_dooit(config: Optional[Path] = None):
     if config and not (config.exists() and config.is_file()):
         print(f"Config file {config} not found.")
